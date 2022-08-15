@@ -1,10 +1,11 @@
 const express = require('express')
 const router = express.Router()
-const { body, validationResult } = require('express-validator');
+const { body, validationResult } = require('express-validator')
 const UserModel = require('../../model/User')
 const bcrypt = require('bcryptjs')
 const gravtar = require('gravatar')
-
+const jwt = require('jsonwebtoken')
+const config = require('config')
 
 // @route   GET api/users
 // @desc  
@@ -40,13 +41,21 @@ router.post('/', [
         // get avatar using gravtar
         const avatar =  gravtar.url(email, {s:'200', r:'pg', d:'mm'})
         // store user in MongoDB
-        await UserModel.create({
+        user = await UserModel.create({
             name,
             email,
             password: hashedPassword,
             avatar
-        })
-        res.send('User registered successfully')
+        })   
+        const payload = {
+            user:{
+                id:user.id
+            }
+        }
+        console.log('payload',payload);
+        // sign payload into token
+        const token = jwt.sign(payload, config.get('jwtPrivateKey'), { expiresIn: 60 * 60 })
+        res.send({message:'User registered successfully', token})
     } catch (error) {
         console.log('Server Error', error);
         return res.status(500).json({errors:[{msg:error.message}]})
