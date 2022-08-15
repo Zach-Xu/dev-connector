@@ -1,5 +1,6 @@
 const express = require('express')
 const connectDB = require('./config/db')
+const bodyParser    = require('body-parser')
 
 // import routes
 const authRouter = require('./routes/api/auth')
@@ -12,6 +13,9 @@ const app = express()
 connectDB()
 
 const PORT = process.env.PORT || 3002
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 
 app.get('/', (req,res)=> {
     res.send('API running')
