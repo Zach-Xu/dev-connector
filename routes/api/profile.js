@@ -103,5 +103,110 @@ router.delete('/', authentication, async (req, res) => {
     }
 })
 
+// @route   POST api/profile/experience
+// @desc    Add experience to profile
+// @access  Private
+router.post('/experience', [authentication, [
+    body('title').not().isEmpty().withMessage('Title required'),
+    body('company').not().isEmpty().withMessage('Company required'),
+    body('location').not().isEmpty().withMessage('location required'),
+    body('from').not().isEmpty().withMessage('Started date required'),
+    body('to').if((value, { req }) => !req.body.current).not().isEmpty().withMessage('End date required')
+]], async (req, res) => {
+    const errors = validationResult(req)
+    // response with 400 if errors raised
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() })
+    }
+    try {
+        const { user: { id } } = req
+        // find profile by id
+        const profile = await ProfileModel.findOne({ user: id })
+        // insert new experience to the front
+        profile.experience = [{ ...req.body }, ...profile.experience]
+        await profile.save()
+        res.json({ msg: 'add experience successfully', experience: profile.experience })
+    } catch (error) {
+        console.error(error.message);
+        return res.status(500).json({ errors: [{ msg: error.message }] })
+    }
+})
+
+// @route   DELETE api/profile/experience/:exp_id
+// @desc    Delete experience
+// @access  Private
+router.delete('/experience/:exp_id', authentication, async (req, res) => {
+    try {
+        const { exp_id } = req.params
+        const { user: { id } } = req
+        // get user profile
+        const profile = await ProfileModel.findOne({ user: id })
+        if (!profile) {
+            res.status(400).json({ errors: [{ msg: 'Profile not found' }] })
+        }
+        // remove experience from the list
+        const newExperienceList = profile.experience.filter(item => item.id != exp_id)
+        // assign new list to experience
+        profile.experience = newExperienceList
+        await profile.save()
+        res.json({ msg: 'delete experience successfully', experience: profile.experience })
+    } catch (error) {
+        console.error(error.message);
+        return res.status(500).json({ errors: [{ msg: error.message }] })
+    }
+})
+
+// @route   POST api/profile/education
+// @desc    Add education to profile
+// @access  Private
+router.post('/education', [authentication, [
+    body('school').not().isEmpty().withMessage('School required'),
+    body('degree').not().isEmpty().withMessage('Degree required'),
+    body('fieldofstudy').not().isEmpty().withMessage('Field of study required'),
+    body('from').not().isEmpty().withMessage('Started date required'),
+    body('to').if((value, { req }) => !req.body.current).not().isEmpty().withMessage('End date required')
+]], async (req, res) => {
+    const errors = validationResult(req)
+    // response with 400 if errors raised
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() })
+    }
+    try {
+        const { user: { id } } = req
+        // find profile by id
+        const profile = await ProfileModel.findOne({ user: id })
+        // insert new education to the front
+        profile.education = [{ ...req.body }, ...profile.education]
+        await profile.save()
+        res.json({ msg: 'add education successfully', education: profile.education })
+    } catch (error) {
+        console.error(error.message);
+        return res.status(500).json({ errors: [{ msg: error.message }] })
+    }
+})
+
+// @route   DELETE api/profile/education/:edu_id
+// @desc    Delete education
+// @access  Private
+router.delete('/education/:edu_id', authentication, async (req, res) => {
+    try {
+        const { edu_id } = req.params
+        const { user: { id } } = req
+        // get user profile
+        const profile = await ProfileModel.findOne({ user: id })
+        if (!profile) {
+            res.status(400).json({ errors: [{ msg: 'Profile not found' }] })
+        }
+        // remove education from the list
+        const newEducationList = profile.education.filter(item => item.id != edu_id)
+        // assign new list to education
+        profile.education = newEducationList
+        await profile.save()
+        res.json({ msg: 'delete education successfully', education: profile.education })
+    } catch (error) {
+        console.error(error.message);
+        return res.status(500).json({ errors: [{ msg: error.message }] })
+    }
+})
 
 module.exports = router
