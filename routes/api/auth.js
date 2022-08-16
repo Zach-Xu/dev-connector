@@ -4,15 +4,21 @@ const authentication = require('../../middleware/authentication')
 const { body, validationResult } = require('express-validator')
 const UserModel = require('../../model/User')
 const bcrypt = require('bcryptjs')
+const config = require('config')
+const jwt = require('jsonwebtoken')
 
 // @route   GET api/auth
 // @desc    Test router
 // @access  Public
-router.get('/', authentication, async(req, res) => {
+router.get('/', authentication, async (req, res) => {
     // destruture id from req and then find user info from DB by the id
-    const {user:{id}} = req
-    const user = await UserModel.findById(id).select('-password') // exclude password
-    res.send({ msg: 'Auth API', user })
+    try {
+        const { user: { id } } = req
+        const user = await UserModel.findById(id).select('-password') // exclude password
+        res.send({ msg: 'Auth API', user })
+    } catch (error) {
+        return res.status(500).json({ errors: [{ msg: error.message }] })
+    }
 })
 
 // @route   POST api/auth
@@ -38,12 +44,18 @@ router.post('/', [
         if (!isMatch) {
             return res.status(400).json({ errors: [{ msg: 'Invalid credentials' }] })
         }
-        return res.send({ Login: 'success' })
+        const payload = {
+            user: {
+                id: user.id
+            }
+        }
+        // sign payload into token
+        const token = jwt.sign(payload, config.get('jwtPrivateKey'), { expiresIn: 60 * 60 })
+        return res.send({ Login: 'success', token })
     } catch (error) {
+        console.error(error.message);
         return res.status(500).json({ errors: [{ msg: error.message }] })
     }
-
-
 })
 
 module.exports = router
