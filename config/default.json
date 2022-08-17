@@ -1,4 +1,7 @@
 {
     "mongoURI":"mongodb+srv://zach:zachproject@project01.ul4l4b2.mongodb.net/?retryWrites=true&w=majority",
-    "jwtPrivateKey":"zachPopping"
+    "jwtPrivateKey":"zachPopping",
+    "githubClientID":"f2b61bb2c20ad424b302",
+    "githubSecret":"f8b533fb104ab5f859cf56668a00f9459baa17c4"
+
 }

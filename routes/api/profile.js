@@ -3,6 +3,8 @@ const router = express.Router()
 const authentication = require('../../middleware/authentication')
 const ProfileModel = require('../../model/Profile')
 const { body, validationResult } = require('express-validator')
+const config = require('config')
+const request = require('request')
 
 // @route   GET api/profile
 // @desc    Get all profiles
@@ -26,6 +28,9 @@ router.get('/:user_id', async (req, res) => {
         const profile = await ProfileModel.findOne({ user: user_id })
         res.json(profile)
     } catch (error) {
+        if (error.kind === 'ObjectId') {
+            return res.status(404).json({ msg: 'User not found' })
+        }
         console.error(error.message);
         res.status(500).json({ msg: 'Server Error' })
     }
@@ -206,6 +211,36 @@ router.delete('/education/:edu_id', authentication, async (req, res) => {
     } catch (error) {
         console.error(error.message);
         return res.status(500).json({ errors: [{ msg: error.message }] })
+    }
+})
+
+// @route   GET api/profile/github/:username
+// @desc    Get user repo from github
+// @access  Public
+router.get('/github/:username', async (req, res) => {
+    try {
+        const { username } = req.params
+        const clientID = config.get('githubClientID')
+        const clientSecret = config.get('githubSecret')
+        // set up request config
+        const options = {
+            uri: `https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${clientID}&client_secret=${clientSecret}`,
+            method: 'GET',
+            headers: { 'user-agent': 'node.js' }
+        }
+        // send request
+        request(options, (error, response, body) => {
+            if (error) {
+                console.error(error)
+            }
+            if (response.statusCode !== 200) {
+                return res.status(404).json({ msg: 'No github repo found' })
+            }
+            return res.json(JSON.parse(body))
+        })
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({ errors: [{ msg: 'Server Error' }] })
     }
 })
 
