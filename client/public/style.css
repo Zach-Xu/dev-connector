@@ -1,0 +1,601 @@
+.m-1 {
+  margin: 1rem;
+}
+
+.my-1 {
+  margin: 1rem 0;
+}
+
+.p-1 {
+  padding: 1rem;
+}
+
+.py-1 {
+  padding: 1rem 0;
+}
+
+.m-2 {
+  margin: 2rem;
+}
+
+.my-2 {
+  margin: 2rem 0;
+}
+
+.p-2 {
+  padding: 2rem;
+}
+
+.py-2 {
+  padding: 2rem 0;
+}
+
+.m-3 {
+  margin: 3rem;
+}
+
+.my-3 {
+  margin: 3rem 0;
+}
+
+.p-3 {
+  padding: 3rem;
+}
+
+.py-3 {
+  padding: 3rem 0;
+}
+
+.m-4 {
+  margin: 4rem;
+}
+
+.my-4 {
+  margin: 4rem 0;
+}
+
+.p-4 {
+  padding: 4rem;
+}
+
+.py-4 {
+  padding: 4rem 0;
+}
+
+.m-5 {
+  margin: 5rem;
+}
+
+.my-5 {
+  margin: 5rem 0;
+}
+
+.p-5 {
+  padding: 5rem;
+}
+
+.py-5 {
+  padding: 5rem 0;
+}
+
+.m-1 {
+  margin: 1rem;
+}
+
+.my-1 {
+  margin: 1rem 0;
+}
+
+.p-1 {
+  padding: 1rem;
+}
+
+.py-1 {
+  padding: 1rem 0;
+}
+
+.m-2 {
+  margin: 2rem;
+}
+
+.my-2 {
+  margin: 2rem 0;
+}
+
+.p-2 {
+  padding: 2rem;
+}
+
+.py-2 {
+  padding: 2rem 0;
+}
+
+.m-3 {
+  margin: 3rem;
+}
+
+.my-3 {
+  margin: 3rem 0;
+}
+
+.p-3 {
+  padding: 3rem;
+}
+
+.py-3 {
+  padding: 3rem 0;
+}
+
+.m-4 {
+  margin: 4rem;
+}
+
+.my-4 {
+  margin: 4rem 0;
+}
+
+.p-4 {
+  padding: 4rem;
+}
+
+.py-4 {
+  padding: 4rem 0;
+}
+
+.m-5 {
+  margin: 5rem;
+}
+
+.my-5 {
+  margin: 5rem 0;
+}
+
+.p-5 {
+  padding: 5rem;
+}
+
+.py-5 {
+  padding: 5rem 0;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  margin-top: 6rem;
+  margin-bottom: 3rem;
+  padding: 0 2rem;
+  overflow: hidden;
+}
+
+.text-primary {
+  color: #17a2b8;
+}
+
+.bg-primary {
+  background-color: #17a2b8;
+  color: #fff;
+}
+.bg-light {
+  background-color: #f4f4f4;
+  color: #333;
+  border: 1px solid #ccc;
+}
+.bg-dark {
+  background-color: #343a40;
+  color: #fff;
+}
+.bg-success {
+  background-color: #28a745;
+  color: #fff;
+}
+.bg-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+.bg-white {
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.round-img {
+  border-radius: 50%;
+}
+
+.x-large {
+  font-size: 4rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.large {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.lead {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.line {
+  height: 1px;
+  background: #ccc;
+  margin: 1.5rem 0;
+}
+
+.btn {
+  background-color: #f4f4f4;
+  color: #333;
+  display: inline-block;
+  font-family: sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0.6rem 1.4rem;
+  border: 0;
+  margin-right: 0.5rem;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #dbdbdb;
+  color: #fff;
+}
+.btn.btn-primary {
+  background-color: #17a2b8;
+  color: #fff;
+}
+.btn.btn-primary:hover {
+  background-color: #1ab6cf;
+}
+.btn.btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+.btn.btn-danger:hover {
+  background-color: #e04b59;
+}
+.btn.btn-dark {
+  background-color: #343a40;
+  color: #fff;
+}
+.btn.btn-dark:hover {
+  background-color: #3f474e;
+}
+.btn.btn-white {
+  background-color: #fff;
+  color: #333;
+}
+.btn.btn-white:hover {
+  background-color: white;
+}
+
+.alert {
+  padding: 1rem;
+  margin: 1rem 0;
+  background: #f4f4f4;
+  color: #333;
+  opacity: 0.9;
+}
+.alert.alert-primary {
+  background-color: #17a2b8;
+  color: #fff;
+}
+.alert.alert-dark {
+  background-color: #343a40;
+  color: #fff;
+}
+.alert.alert-success {
+  background-color: #28a745;
+  color: #fff;
+}
+.alert.alert-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.dark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.badge {
+  font-size: 0.8rem;
+  padding: 0.1rem;
+  text-align: center;
+  margin: 0.3rem;
+  background: #f4f4f4;
+  color: #333;
+}
+.badge.badge-primary {
+  background-color: #17a2b8;
+  color: #fff;
+}
+.badge.badge-dark {
+  background-color: #343a40;
+  color: #fff;
+}
+.badge.badge-success {
+  background-color: #28a745;
+  color: #fff;
+}
+.badge.badge-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.table th {
+  background-color: #f4f4f4;
+  color: #333;
+}
+.table th,
+.table td {
+  text-align-last: left;
+  padding: 1rem;
+}
+
+.form .form-group {
+  margin: 1rem 0;
+}
+.form .social-input {
+  display: flex;
+}
+.form .social-input i {
+  padding: 0.5rem;
+  width: 4rem;
+}
+.form .social-input i.fa-twitter {
+  color: #38a1f3;
+}
+.form .social-input i.fa-facebook {
+  color: #3b5998;
+}
+.form .social-input i.fa-instagram {
+  color: #3f729b;
+}
+.form .social-input i.fa-youtube {
+  color: #c4302b;
+}
+.form .social-input i.fa-linkedin {
+  color: #0077b5;
+}
+.form input[type=text],
+.form input[type=email],
+.form input[type=password],
+.form input[type=date],
+.form select,
+.form textarea {
+  display: block;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  width: 100%;
+  border: 1px solid #ccc;
+}
+.form .form-text {
+  display: block;
+  margin-top: 0.4rem;
+  margin-bottom: 1rem;
+  color: grey;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #17a2b8;
+  font-family: "Raleway", sans-serif;
+  background-color: #fff;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: #17a2b8;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}
+
+i {
+  margin: 0.2rem;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.3rem 2.4rem;
+  font-family: "Raleway", sans-serif;
+  opacity: 0.9;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+  border-bottom: 1px solid #17a2b8;
+}
+.navbar ul {
+  display: flex;
+  align-items: center;
+}
+.navbar ul li {
+  margin: 1rem;
+}
+.navbar a {
+  color: #fff;
+}
+
+.landing {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background: url("./images/showcase.jpg") no-repeat center/cover;
+}
+.landing-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  height: 100%;
+  width: 80%;
+}
+
+.profile {
+  display: grid;
+  grid-template-columns: 2fr 4fr 2fr;
+  gap: 2rem;
+  padding: 1rem;
+  line-height: 1.8;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-areas: "top top" "about about" "exp edu" "github github";
+  gap: 1rem;
+}
+
+.profile-grid .profile-top {
+  grid-area: top;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+.profile-grid .profile-top img {
+  width: 250px;
+}
+.profile-grid .profile-top .icons a {
+  color: #fff;
+}
+.profile-grid .profile-about {
+  grid-area: about;
+  text-align: center;
+}
+.profile-grid .profile-about .skills {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile-grid .profile-exp {
+  grid-area: exp;
+}
+.profile-grid .profile-edu {
+  grid-area: edu;
+}
+.profile-grid .profile-exp > div, .profile-grid .profile-edu > div {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #ccc;
+}
+.profile-grid .profile-exp > div:last-of-type, .profile-grid .profile-edu > div:last-of-type {
+  border-bottom: 0;
+}
+.profile-grid .profile-exp > div p, .profile-grid .profile-edu > div p {
+  padding: 0.3rem 0;
+}
+.profile-grid .profile-github {
+  grid-area: github;
+}
+.profile-grid .profile-github .repo {
+  display: flex;
+}
+.profile-grid .profile-github .repo > div:first-of-type {
+  flex: 7;
+  flex-basis: 70%;
+}
+.profile-grid .profile-github .repo > div:last-of-type {
+  flex: 3;
+  flex-basis: 20%;
+}
+
+.post-form-header {
+  padding: 0.4rem;
+}
+
+.post {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 2rem;
+  align-items: center;
+}
+.post > div:first-of-type {
+  text-align: center;
+}
+.post img {
+  padding: 0 1rem;
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    display: block;
+    text-align: center;
+  }
+  .navbar ul {
+    text-align: center;
+    justify-content: center;
+  }
+  .x-large {
+    font-size: 3rem;
+  }
+  .large {
+    font-size: 2rem;
+  }
+  .lead {
+    font-size: 1rem;
+  }
+  .container {
+    margin-top: 9rem;
+  }
+  .hide-sm {
+    display: none;
+  }
+  .profile {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .profile ul {
+    display: none;
+  }
+  .dash-buttons {
+    display: flex;
+    flex-direction: column;
+  }
+  .dash-buttons a {
+    margin-bottom: 0.4rem;
+  }
+  .post {
+    grid-template-columns: 1fr;
+  }
+  .post img {
+    width: 9rem;
+  }
+  .profile-grid {
+    grid-template-areas: "top" "about" "exp" "edu" "github";
+  }
+  .profile-grid .skills {
+    flex-direction: column;
+  }
+}
