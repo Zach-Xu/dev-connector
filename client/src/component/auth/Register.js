@@ -1,31 +1,40 @@
 import React, { Fragment, useState } from "react";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { setAlertAsync } from "../../redux/reducers/alertReducer";
 
 export default function Register() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
-    password2: "",
+    password2: ""
   });
 
   let { name, email, password, password2 } = formData;
+
+  const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     // verify password
     if (password !== password2) {
-      return alert("Passwords do not match");
+      const payload = {
+        message: "Passwords do not match",
+        type: "danger",
+        time: 4000
+      };
+      return dispatch(setAlertAsync(payload));
     }
     // send registration request
     const res = await axios.post("api/users", {
       name,
       email,
-      password,
+      password
     });
     // save token
     const {
-      data: { token },
+      data: { token }
     } = res;
     localStorage.setItem("token", token);
   };
